@@ -9,11 +9,9 @@
     <script src="js/tw-elements.umd.min.js" defer></script>
 </head>
 <body>
-    <div class="flex flex-wrap justify-between bg-lightbrown">
-        <div class="justify-start h-auto basis-1/2 px-5 py-2">
-          <img src="images/logo.png" alt="Logo Choco Pap" class="size-12">
-        </div>
-        <div class="flex justify-end flex-row gap-5 basis-1/2 px-5 md:hidden">
+    <div class="flex justify-between bg-lightbrown py-3 px-10">
+        <img src="images/logo.png" alt="Logo Choco Pap" class="size-12">
+        <div class="flex md:hidden flex-row gap-5">
           <button id="menuToggle"><img src="images/menu_burger.svg" alt="Ouvrir / Fermer le menu" class="size-12"
             data-twe-collapse-init
             data-twe-target="#mainNav"
@@ -21,15 +19,15 @@
             aria-controls="mainNav">
           </button>
         </div>
-        <nav id="mainNav" class="hidden basis-full flex-col bg-white md:flex md:flex-row md:basis-1/2 md:bg-lightbrown md:gap-5 md:justify-end md:px-5">
-          <ul class="ml-3 flex flex-col text-brown font-Droid items-start md:flex-row md:text-white md:items-center md:gap-10">
+        <nav id="mainNav" class="flex flex-col md:flex md:flex-row md:gap-5">
+          <ul class="flex flex-col gap-10 text-white font-Droid items-center md!flex-row">
               <li><a href="index.html">Accueil</a></li>
               <li><a href="boutique.html">Boutique</a></li>
-              <li class="flex items-center"><span class="md:hidden">Panier </span><img src="images/cart.svg" alt="Panier" class="size-6 md:size-12"></li>
+              <li><span class="md:hidden">Panier </span><img src="images/cart.svg" alt="Panier" class="size-12"></li>
           </ul>
         </nav>
-      </div>
-      <div
+    </div>
+    <div
       id="carouselCaptions"
       class="relative"
       data-twe-carousel-init
