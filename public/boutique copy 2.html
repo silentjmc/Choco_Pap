@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choco Pap - Boutique</title>
-    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/script.css">
     <script src="js/tw-elements.umd.min.js" defer></script>
-    <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/boutique.js"></script>
 </head>
 <body class="bg-lightbrown font-Droid">
@@ -70,44 +69,65 @@
                     <label for="Liqueur" id="Liqueur">Liqueur</label>
                 </div>
                 <h6 class="font-Fjalla underline">Prix</h6>
-                <div class="flex gap-3 text-xs">
-                    <label for="Prix mini" class="w-16">Prix mini</label>
-                    <select name="Prix mini" id="Prix mini" class="border"></select>
+                <div class="text-xs">
+                    <label for="Prix mini">Prix mini</label>
+                    <select name="Prix mini" id="Prix mini"></select>
                 </div>
-                <div class="flex gap-3 text-xs">
-                    <label for="Prix max" class="w-16">Prix max</label>
-                    <select name="Prix max" id="Prix max" class="border"></select>
+                <div class="text-xs">
+                    <label for="Prix max">Prix max</label>
+                    <select name="Prix max" id="Prix max"></select>
                 </div>
                 <h6 class="font-Fjalla underline">Notes</h6>
-                <div class="flex gap-3 text-xs pb-2">
-                    <label for="Note mini" class="w-16">Note mini</label>
-                    <select name="Note mini" id="Note mini" class="border">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                <div class="text-xs">
+                    <label for="Note mini">Note mini</label>
+                    <select name="Note mini" id="Note mini"></select>
                 </div>
-                <div class="flex gap-3 text-xs">
-                    <label for="Note max" class="w-16">Note max</label>
-                    <select name="Note max" id="Note max" class="border">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                <div class="text-xs">
+                    <label for="Note max">Note max</label>
+                    <select name="Note max" id="Note max"></select>
                 </div>
             </aside>
-            <main class="bg-white mb-5 md:basis-3/4 lg:basis-4/5 xl:basis-5/6 2xl:basis-6/7">
+            <main class="bg-white md:basis-3/4 lg:basis-4/5 xl:basis-5/6 2xl:basis-6/7">
                 <div id="shopContent" class="grid grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:grid-cols-4">
+                    <div class="grid justify-items-center">
+                        <img src="images/produit1.jpg" alt="" class="max-h-20 ">
+                        <p>Nom Produit</p>
+                        <p>Prix</p>
+                        <p>Note :</p>
+                        <button type="button" class="rounded items-center bg-lightbrown px-6 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded"">Ajouter au panier</button>
                     </div>
-  
+                    <div class="grid justify-items-center">
+                        <img src="images/produit1.jpg" alt="" class="max-w-40 md:min-w-40">
+                        <p>Nom Produit</p>
+                        <p>Prix</p>
+                        <p>Note :</p>
+                        <button type="button">Ajouter au panier</button>
+                    </div>
+                    <div class="grid justify-items-center">
+                        <img src="images/produit1.jpg" alt="" class="max-w-40 md:min-w-40">
+                        <p>Nom Produit</p>
+                        <p>Prix</p>
+                        <p>Note :</p>
+                        <button type="button">Ajouter au panier</button>
+                    </div>
+                    <div class="grid justify-items-center">
+                        <img src="images/produit1.jpg" alt="" class="max-w-40 md:min-w-40">
+                        <p>Nom Produit</p>
+                        <p>Prix</p>
+                        <p>Note :</p>
+                        <button type="button">Ajouter au panier</button>
+                    </div>
+                    <div class="grid justify-items-center">
+                        <img src="images/produit1.jpg" alt="" class="max-w-40 md:min-w-40">
+                        <p>Nom Produit</p>
+                        <p>Prix</p>
+                        <p>Note :</p>
+                        <button type="button">Ajouter au panier</button>
+                    </div>
             </main>
         </div>
     </section>
-    <footer class="flex flex-col gap-5 m-3 text-darkbrown md:flex-row md:gap-20">
+    <footer class="flex flex-col gap-5 mx-3 text-darkbrown md:flex-row md:gap-20">
         <div class="basis-1/3">
           <h3 class="text-xl font-semibold mb-4 font-Fjalla">Choco Pap</h3>
           <p class="text-sm font-Droid font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ullam animi quis id ab nisi eveniet laboriosam consequuntur explicabo.</p>
