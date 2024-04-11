@@ -11,9 +11,10 @@ $(document).ready(function() {
             var productLink = document.createElement("a");
             productLink.href = "produit.html?" + this.id
             productLink.innerText = this.title;
+            productLink.className = "hover:underline hover:font-bold hover:text-lightbrown"
             productName.appendChild(productLink);
             var productPrice = document.createElement("p");
-            productPrice.innerText = this.price;
+            productPrice.innerText = this.price + " €";
             var productNote = document.createElement("p");
             productNote.innerText = "Note : " + this.note;
             var productAddCart= document.createElement("button");

@@ -33,7 +33,23 @@
       </header>
     <main class="bg-white">
       <div id="productContent" class="grid grid-cols-1 mx-5 pt-5 gap-2 md:grid-cols-3 md:gap-x-20 md:pt-20">
-        
+        <div class="md:order-2 md:col-span-2">
+          <h1 class="text-2xl font-Fjalla">Nom Produit</h1>
+          <p class="text-2xl font-bold">Prix</p>
+          <div class="my-3">
+            <p>Cerisier - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="flex flex-col gap-3">
+            <input type="number" placeholder="1" step="1" min="1" max="100" class="border w-16 pl-2"/>
+            <button type="button" class="rounded items-center bg-lightbrown px-6 py-3 text-base font-Fjalla text-white w-44 hover:bg-brown hover:rounded">Ajouter au panier</button>
+          </div>
+        </div>
+        <img src="images/produit1.jpg" alt="" class="my-3 w-72 md:order-1 md:place-self-center">
+        <div class="mb-12 md:order-3 md:col-span-3 md:mb-72">
+          <p class="font-bold">Ingrédients</p>
+          <p class="my-3">Cerise enrobée de pâtes d'amandes, de chocolat au lait et d'éclat de noisettes. Allergènes : SOJA, LAIT (LACTOSE). Contient de l'anhydride sulfureux</p>
+        </div>
+
       </div>
     </main>
     <footer class="flex flex-col gap-5 m-3 text-darkbrown md:flex-row md:gap-20">
