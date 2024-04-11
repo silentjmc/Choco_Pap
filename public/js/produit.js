@@ -5,7 +5,7 @@ $(document).ready(function() {
         for (var i = 0; i < data.length; i++) {
             // Vérifier si l'ID de l'objet correspond à l'ID passé dans l'URL
             if (data[i].id === idProduct) {
-                // L'objet correspondant a été trouvé, vous pouvez maintenant l'utiliser comme nécessaire
+        
                 console.log("Objet correspondant trouvé :", data[i]);
                 
                 var productDiv = document.createElement("div");
