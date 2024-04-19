@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="css/script.css">
     <script src="js/tw-elements.umd.min.js" defer></script>
     <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- <script src="js/boutique.js"></script> -->
     <script src="js/boutique.js"></script>
+    <!-- <script src="js/filter.js" defer></script> -->
+    <script>
+        const productGrid = new ProductGrid("src/products.json", "shopContent");
+        productGrid.getProducts();
+    </script>
 </head>
 <body class="bg-lightbrown font-Droid">
     <header class="flex flex-wrap justify-between bg-lightbrown">
@@ -70,18 +76,18 @@
                     <label for="Liqueur" id="Liqueur">Liqueur</label>
                 </div>
                 <h6 class="font-Fjalla underline">Prix</h6>
-                <div class="flex gap-3 text-xs">
-                    <label for="Prix mini" class="w-16">Prix mini</label>
-                    <select name="Prix mini" id="Prix mini" class="border"></select>
+                <div class="flex gap-3 text-xs pb-2">
+                    <label for="prixMini" class="w-16">Prix mini</label>
+                    <select name="Prix mini" id="prixMini" class="border"></select>
                 </div>
                 <div class="flex gap-3 text-xs">
-                    <label for="Prix max" class="w-16">Prix max</label>
-                    <select name="Prix max" id="Prix max" class="border"></select>
+                    <label for="prixMax" class="w-16">Prix max</label>
+                    <select name="Prix max" id="prixMax" class="border"></select>
                 </div>
                 <h6 class="font-Fjalla underline">Notes</h6>
                 <div class="flex gap-3 text-xs pb-2">
-                    <label for="Note mini" class="w-16">Note mini</label>
-                    <select name="Note mini" id="Note mini" class="border">
+                    <label for="noteMini" class="w-16">Note mini</label>
+                    <select name="Note mini" id="noteMini" class="border">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -90,15 +96,16 @@
                     </select>
                 </div>
                 <div class="flex gap-3 text-xs">
-                    <label for="Note max" class="w-16">Note max</label>
-                    <select name="Note max" id="Note max" class="border">
+                    <label for="noteMax" class="w-16">Note max</label>
+                    <select name="Note max" id="noteMax" class="border">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5" selected>5</option>
                     </select>
                 </div>
+                <button type="button" id="btnFilter" class="rounded items-center bg-lightbrown px-5 py-3 mt-3 w-36 w-min-24 w-max-36 md:place-self-center text-base font-Fjalla text-white hover:bg-brown hover:rounded">Filtrer</button>
             </aside>
             <main class="bg-white mb-5 md:basis-3/4 lg:basis-4/5 xl:basis-5/6 2xl:basis-6/7">
                 <div id="shopContent" class="grid grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:grid-cols-4">
