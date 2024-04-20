@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,7 +16,9 @@
         const productGrid = new ProductGrid("src/products.json", "shopContent");
         productGrid.getProducts();
     </script>
-</head>
+<!-- Code injected by Five-server -->
+  <script async data-id="five-server" data-file="c:\Users\silen\Documents\Cours_Epsi\C4_\Fil_Rouge_Choco\public\boutique.html" type="application/javascript" src="/fiveserver.js"></script>
+  </head>
 <body class="bg-lightbrown font-Droid">
     <header class="flex flex-wrap justify-between bg-lightbrown">
         <div class="justify-start h-auto basis-1/2 px-5 py-2">
@@ -105,11 +108,14 @@
                         <option value="5" selected>5</option>
                     </select>
                 </div>
+                <button type="button" id="btnFilter" class="rounded items-center bg-lightbrown px-5 py-3 mt-3 w-36 w-min-24 w-max-36 md:place-self-center text-base font-Fjalla text-white hover:bg-brown hover:rounded">Filtrer</button>
             </aside>
             <main class="bg-white mb-5 md:basis-3/4 lg:basis-4/5 xl:basis-5/6 2xl:basis-6/7">
-                <div id="shopContent" class="grid grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:grid-cols-4">
-                    </div>
+                    <div id="shopContent" class="grid grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:grid-cols-4"><div class="grid justify-items-center mb-5"><img src="./images/produit1.jpg" alt="Cerisier" class="max-h-20"><p><a href="produit.html?id=1" class="hover:underline hover:font-bold hover:text-lightbrown">Cerisier</a></p><p>2.99 €</p><p>Note : 5</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div><div class="grid justify-items-center mb-5"><img src="./images/produit2.jpg" alt="Coulis Caramel" class="max-h-20"><p><a href="produit.html?id=2" class="hover:underline hover:font-bold hover:text-lightbrown">Coulis Caramel</a></p><p>13.99 €</p><p>Note : 3</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div><div class="grid justify-items-center mb-5"><img src="./images/produit3.jpg" alt="Douceur exotique" class="max-h-20"><p><a href="produit.html?id=3" class="hover:underline hover:font-bold hover:text-lightbrown">Douceur exotique</a></p><p>4.99 €</p><p>Note : 4</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div><div class="grid justify-items-center mb-5"><img src="./images/produit4.jpg" alt="Blanc Passion" class="max-h-20"><p><a href="produit.html?id=4" class="hover:underline hover:font-bold hover:text-lightbrown">Blanc Passion</a></p><p>5.99 €</p><p>Note : 5</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div><div class="grid justify-items-center mb-5"><img src="./images/produit5.jpg" alt="Douceur croquante" class="max-h-20"><p><a href="produit.html?id=5" class="hover:underline hover:font-bold hover:text-lightbrown">Douceur croquante</a></p><p>2.99 €</p><p>Note : 3</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div><div class="grid justify-items-center mb-5"><img src="./images/produit6.jpg" alt="Le Zèbre" class="max-h-20"><p><a href="produit.html?id=6" class="hover:underline hover:font-bold hover:text-lightbrown">Le Zèbre</a></p><p>19.99 €</p><p>Note : 4</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div><div class="grid justify-items-center mb-5"><img src="./images/produit7.jpg" alt="Coulis Fraise" class="max-h-20"><p><a href="produit.html?id=7" class="hover:underline hover:font-bold hover:text-lightbrown">Coulis Fraise</a></p><p>9.99 €</p><p>Note : 4</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div><div class="grid justify-items-center mb-5"><img src="./images/produit8.jpg" alt="Noir Passion" class="max-h-20"><p><a href="produit.html?id=8" class="hover:underline hover:font-bold hover:text-lightbrown">Noir Passion</a></p><p>4.99 €</p><p>Note : 5</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div><div class="grid justify-items-center mb-5"><img src="./images/produit9.jpg" alt="Fantaisie" class="max-h-20"><p><a href="produit.html?id=9" class="hover:underline hover:font-bold hover:text-lightbrown">Fantaisie</a></p><p>2.99 €</p><p>Note : 5</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div><div class="grid justify-items-center mb-5"><img src="./images/produit10.jpg" alt="Caramel Salé" class="max-h-20"><p><a href="produit.html?id=10" class="hover:underline hover:font-bold hover:text-lightbrown">Caramel Salé</a></p><p>14.99 €</p><p>Note : 4</p><button type="button" class="rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded">Ajouter au panier</button></div></div>
   
+
+
+                    
             </main>
         </div>
     </section>
@@ -132,3 +138,6 @@
       </footer>
 </body>
 </html>
+
+
+

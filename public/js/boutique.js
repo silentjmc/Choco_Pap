@@ -5,26 +5,11 @@ class ProductGrid {
         this.containerId = containerId;
         this.noteMini = 1;
         this.noteMax = 5;
-        this.prixMini = 0;
-        this.prixMax = 10000;
-
+        this.prixMini = 2.99;
+        this.prixMax = 19.99;
+        this.checkedCategories = new Set();
     }
-/*
-    async getProducts() {
-        try {
-            const response = await fetch(this.jsonUrl);
-            if (!response.ok) {
-                throw new Error(`Erreur lors de la récupération des données depuis ${this.jsonUrl}`);
-            }
-            let products = await response.json();
-            this.renderProducts(products, '1', '5');
-            this.createPriceOptions(products);
-            this.filter(products);
-        } catch (error) {
-            console.error(error);
-        }
-    }
-*/
+// recupération du JSON
     async getProducts() {
          const that = this
         $.ajax({
@@ -32,52 +17,56 @@ class ProductGrid {
             dataType: "json",
         })
         .done(function(products) {
-            that.renderProducts(products, that.prixMini, that.prixMax, that.noteMini, that.noteMax);
-            that.filter(products);
+            that.renderProducts(products, that.prixMini, that.prixMax, that.noteMini, that.noteMax, this.eachCatgeory);
             that.createPriceOptions(products);
+            that.manageFilter(products);
         })
         .fail(function (jqXHR, textStatus, error) {
             console.log("Post error: " + error);
         });
     }
-
-    filter(products) {
+// methode pour écouter les filtres et mettre a jour la grillle de produit
+    manageFilter(products) {
         const notAllCheckboxes = document.querySelectorAll('input[type="checkbox"]:not(#Tous)');
         const allCheckbox = document.getElementById('Tous');
-        // const btnFilter = document.getElementById('btnFilter');
 
         notAllCheckboxes.forEach((checkbox) => {
             checkbox.addEventListener("change", () => {
                 if (allCheckbox.checked == true) {
                     allCheckbox.checked = false;
                 }
+                if (this.checkedCategories.has(checkbox.id)){
+                    this.checkedCategories.delete(checkbox.id);
+                    this.renderProducts(products, prixMini, prixMax, noteMini, noteMax);
+                } else {
+                    this.checkedCategories.add(checkbox.id);
+                    console.log(this.checkedCategories);
+                    this.renderProducts(products, prixMini, prixMax, noteMini, noteMax);
+                }
             });
         });
-        
+
+
        allCheckbox.addEventListener("change", () => {
             notAllCheckboxes.forEach((checkbox) => {
                 checkbox.checked = false;
-               }); 
+               });
         });
 
         prixMini.addEventListener("change", () => {
             if (parseFloat(prixMini.value)>this.prixMax){
-                console.log("erreur prixMax: " + prixMax.value + ", prixMini: " + this.prixMini);
+                console.log("prixmini prend this valeur"+this.prixMini)
                 prixMini.value = this.prixMini;
             } else {
-                console.log("prixMax: " + prixMax.value + ", prixMini: " + this.prixMini);
             this.prixMini = prixMini.value;
-            console.log("prixMax: " + prixMax.value + ", prixMini: " + this.prixMini);
             this.renderProducts(products, this.prixMini, this.prixMax, this.noteMini, this.noteMax);
             }
         })
 
         prixMax.addEventListener("change", () => {
             if (parseFloat(prixMax.value)<this.prixMini){
-                console.log("prixMax: " + prixMax.value + ", prixMini: " + this.prixMini);
                 prixMax.value = this.prixMax;
             } else {
-            console.log("prixMax: " + prixMax.value + ", prixMini: " + this.prixMini);
             this.prixMax = prixMax.value;
             this.renderProducts(products, this.prixMini, this.prixMax,this.noteMini, this.noteMax);
             }
@@ -100,18 +89,8 @@ class ProductGrid {
             this.renderProducts(products, this.prixMini, this.prixMax,this.noteMini, this.noteMax);
             }
         })
-
-
-        /*
-        btnFilter.addEventListener("click", () => {
-            let noteMini = document.getElementById('noteMini').value;
-            console.log(noteMini);
-            let noteMax = document.getElementById('noteMax').value;
-            console.log(noteMax);
-            this.renderProducts(products,noteMini, noteMax);
-        });*/
     }
-
+// methode pour récupérer les prix et les afficher dans options des filtres
     createPriceOptions(products) {
         let arrayPrices = [...new Set(products.map((product) => product.price))];
         arrayPrices.sort((a, b) => a - b);
@@ -130,21 +109,33 @@ class ProductGrid {
         });
         filterMaxPrice.value = arrayPrices[arrayPrices.length - 1];
     }
-
+// methode pour vider la grille
     clearGridContainer() {
-        // let gridContainer = document.getElementById(this.containerId);
         const containerId = this.containerId;
         $('#'+containerId).empty();
     }
 
+// methode filtrer les produits en fonction des prix / notes et catégories (ne fonctionne aps pour catégorie)
+    filterProducts(products, prixMini, prixMax, noteMini, noteMax) {
+        return products.filter((product) =>
+            product.price >= prixMini &&
+            product.price <= prixMax &&
+            product.note >= noteMini &&
+            product.note <= noteMax
+        );
+    }
+
+    //methode pour afficher la grille de produit
     renderProducts(products, prixMini, prixMax, noteMini, noteMax) {
+        const filteredProducts = this.filterProducts(products, prixMini, prixMax, noteMini, noteMax);
+        // console.log(filteredProducts);
         const containerId = this.containerId;
         $('#'+containerId).empty();
         let gridContainer = document.getElementById(this.containerId);
 
-        let filterProducts = products.filter((products) => products.price >= prixMini && products.price <= prixMax && products.note >= noteMini && products.note <= noteMax);
+        //let filterProducts = products.filter((products) => products.price >= prixMini && products.price <= prixMax && products.note >= noteMini && products.note <= noteMax );
 
-        filterProducts.forEach((product) => {    
+        filteredProducts.forEach((product) => {
             const productDiv = document.createElement("div");
             productDiv.className = "grid justify-items-center mb-5";
 
