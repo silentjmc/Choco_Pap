@@ -17,7 +17,7 @@ class ProductGrid {
             dataType: "json",
         })
         .done(function(products) {
-            that.renderProducts(products, that.prixMini, that.prixMax, that.noteMini, that.noteMax, this.eachCatgeory);
+            that.renderProducts(products);
             that.createPriceOptions(products);
             that.manageFilter(products);
         })
@@ -37,12 +37,15 @@ class ProductGrid {
                 }
                 if (this.checkedCategories.has(checkbox.id)){
                     this.checkedCategories.delete(checkbox.id);
-                    this.renderProducts(products, prixMini, prixMax, noteMini, noteMax);
                 } else {
                     this.checkedCategories.add(checkbox.id);
-                    console.log(this.checkedCategories);
-                    this.renderProducts(products, prixMini, prixMax, noteMini, noteMax);
+                    this.renderProducts(products);
                 }
+                if  (this.checkedCategories.size === 0) {
+                    allCheckbox.checked = true;
+                    this.renderProducts(products);
+                }else{
+                this.renderProducts(products);}
             });
         });
 
@@ -59,7 +62,7 @@ class ProductGrid {
                 prixMini.value = this.prixMini;
             } else {
             this.prixMini = prixMini.value;
-            this.renderProducts(products, this.prixMini, this.prixMax, this.noteMini, this.noteMax);
+            this.renderProducts(products);
             }
         })
 
@@ -68,7 +71,7 @@ class ProductGrid {
                 prixMax.value = this.prixMax;
             } else {
             this.prixMax = prixMax.value;
-            this.renderProducts(products, this.prixMini, this.prixMax,this.noteMini, this.noteMax);
+            this.renderProducts(products);
             }
         })
 
@@ -77,7 +80,7 @@ class ProductGrid {
                 noteMini.value = this.noteMini;
             } else {
             this.noteMini = noteMini.value;
-            this.renderProducts(products, this.prixMini, this.prixMax,this.noteMini, this.noteMax);
+            this.renderProducts(products);
             }
         })
 
@@ -86,7 +89,7 @@ class ProductGrid {
                 noteMax.value = this.noteMax;
             } else {
             this.noteMax = noteMax.value;
-            this.renderProducts(products, this.prixMini, this.prixMax,this.noteMini, this.noteMax);
+            this.renderProducts(products);
             }
         })
     }
@@ -109,26 +112,23 @@ class ProductGrid {
         });
         filterMaxPrice.value = arrayPrices[arrayPrices.length - 1];
     }
-// methode pour vider la grille
-    clearGridContainer() {
-        const containerId = this.containerId;
-        $('#'+containerId).empty();
-    }
 
 // methode filtrer les produits en fonction des prix / notes et catégories (ne fonctionne aps pour catégorie)
-    filterProducts(products, prixMini, prixMax, noteMini, noteMax) {
+  
+    filterProducts(products) {
         return products.filter((product) =>
-            product.price >= prixMini &&
-            product.price <= prixMax &&
-            product.note >= noteMini &&
-            product.note <= noteMax
+            product.price >= this.prixMini &&
+            product.price <= this.prixMax &&
+            product.note >= this.noteMini &&
+            product.note <= this.noteMax &&
+            (this.checkedCategories.size === 0 || 
+            Object.keys(product.category).some(category => this.checkedCategories.has(category) && product.category[category]==true))
         );
     }
 
     //methode pour afficher la grille de produit
-    renderProducts(products, prixMini, prixMax, noteMini, noteMax) {
-        const filteredProducts = this.filterProducts(products, prixMini, prixMax, noteMini, noteMax);
-        // console.log(filteredProducts);
+    renderProducts(products) {
+        const filteredProducts = this.filterProducts(products);
         const containerId = this.containerId;
         $('#'+containerId).empty();
         let gridContainer = document.getElementById(this.containerId);
@@ -158,7 +158,7 @@ class ProductGrid {
             productNote.innerText = `Note : ${product.note}`;
 
             const productAddCart = document.createElement("button");
-            productAddCart.type = "button";
+            productAddCart.type = "submit";
             productAddCart.className = "rounded items-center bg-lightbrown px-5 py-3 text-base font-Fjalla text-white hover:bg-brown hover:rounded";
             productAddCart.innerText = "Ajouter au panier";
 

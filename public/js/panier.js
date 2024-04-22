@@ -1,0 +1,4 @@
+function emptyBasket() {
+    localStorage.clear();
+
+}
