@@ -1,12 +1,10 @@
 $(document).ready(function() {  
-    const idProduct = window.location.search.substring(1); 
+    const idProduct = window.location.search.substring(4); 
     $.getJSON("src/products.json", function(data) {
         // Parcourir les objets dans le fichier JSON
         for (var i = 0; i < data.length; i++) {
             // Vérifier si l'ID de l'objet correspond à l'ID passé dans l'URL
             if (data[i].id === idProduct) {
-        
-                console.log("Objet correspondant trouvé :", data[i]);
                 
                 var productDiv = document.createElement("div");
                 productDiv.className = "md:order-2 md:col-span-2";
@@ -28,11 +26,14 @@ $(document).ready(function() {
                 var productQteAddCart = document.createElement("div");
                 productQteAddCart.className = "flex flex-col gap-3";
                 var productQte = document.createElement("input");
+                productQte.type = "number";
+                productQte.id = "quantity";
                 productQte.placeholder = "1";
-                productQte.step = "1";
+                //productQte.step = "1";
                 productQte.min = "1";
-                productQte.max = "100";
-                productQte.className = "border w-16 pl-2";
+                //productQte.max = "100";
+                //productQte.className = "border w-16 pl-2";
+                productQte.className = "bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:border-lightbrown block w-20 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-lightbrown"
                 productQteAddCart.appendChild(productQte);
                 var productAddCart= document.createElement("button");
                 productAddCart.type="button";
@@ -40,14 +41,13 @@ $(document).ready(function() {
                 productAddCart.innerText="Ajouter au panier";
                 productQteAddCart.appendChild(productAddCart);
                 
-                
                 var productImg = document.createElement("img");
                 productImg.src = data[i].image;
                 productImg.alt = data[i].title;
                 productImg.className = "my-3 w-72 md:order-1 md:place-self-center";
 
                 var productIngredient = document.createElement("div");
-                productIngredient.className = "mb-12 md:order-3 md:col-span-3 md:mb-72";
+                productIngredient.className = "mb-12 md:order-3 md:col-span-3 md:mb-52 md:mt-5";
                 var productIngredientTitle = document.createElement("p");
                 productIngredientTitle.innerText="Ingrédients";
                 var productIngredientContent = document.createElement("p");
