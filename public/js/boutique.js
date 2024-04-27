@@ -1,7 +1,7 @@
 class ProductGrid {
-    constructor(jsonUrl, containerId) {
-        this.jsonUrl = jsonUrl;
-        this.containerId = containerId;
+    constructor() {
+        this.jsonUrl = "src/products.json";
+        this.containerId = "shopContent";
         this.noteMini = 1;
         this.noteMax = 5;
         this.prixMini = 2.99;

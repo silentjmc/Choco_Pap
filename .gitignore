@@ -3,3 +3,6 @@ tailwind.config.js
 /src
 package.json
 package-lock.json
+/public/js/boutique_copy.js
+/public/js/panier copy.js
+/public/js/shop.js
