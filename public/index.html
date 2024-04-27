@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choco Pap - Index</title>
+  <title>Choco Pap - Accueil</title>
+  <meta name="description" content="Découvrez notre délicieuse sélection de chocolats artisanaux.">
   <link rel="stylesheet" href="css/script.css">
   <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
   <script src="js/jquery-3.7.1.min.js"></script>
@@ -128,10 +129,10 @@
     </div>
     <div>
       <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
-      <p id="totalbasket" class="flex justify-center"></p>
+      <p id="totalBasket" class="flex justify-center"></p>
     </div>
     <div class="flex flex-col gap-5 mt-5">
-      <button type="button" aria-controls="delete" class="uppercase rounded-lg flex place-self-center justify-center bg-lightbrown px-5 py-3 w-64 text-base font-Fjalla text-white hover:bg-brown hover:rounded.lg">réinitialiser le panier
+      <button type="button" aria-controls="delete" class="uppercase rounded-lg flex place-self-center justify-center bg-lightbrown px-5 py-3 w-64 text-base font-Fjalla text-white hover:bg-brown hover:rounded.lg" onclick="emptyBasket()">réinitialiser le panier
       </button>
       <button type="button" aria-controls="validate" class="uppercase rounded-lg flex place-self-center justify-center bg-lightbrown px-5 py-3 w-64 text-base font-Fjalla text-white">valider le panier
       </button>

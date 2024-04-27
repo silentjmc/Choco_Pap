@@ -1,5 +1,7 @@
 function saveBasket(basket) {
     localStorage.setItem("basket", JSON.stringify(basket));
+    countItemsQuantity();
+    renderBasket();
 }
 
 function getBasket(){
@@ -12,20 +14,23 @@ function getBasket(){
 }
 
 function emptyBasket() {
-    localStorage.clear();
+    if (confirm("Voulez-vous vider votre panier ?")) {
+        localStorage.clear();
+        countItemsQuantity();
+        renderBasket();
+    }
 }
 
 function addItem(id, imageUrl, nameProduct, price, quantity=1) {
     let basket = getBasket();
     let foundItem = basket.find(item => item.id == id);
-    product= {id, imageUrl, nameProduct, price, quantity};
+    let product={id, imageUrl, nameProduct, price, quantity};
     if (foundItem == undefined) {
         basket.push(product);
     } else {
-        foundItem.quantity += quantity;
+        foundItem.quantity+= quantity;
     }
     saveBasket(basket);
-    countItemsQuantity();
 }
 
 function removeItem(id){
@@ -33,27 +38,20 @@ function removeItem(id){
     let foundItem = basket.findIndex(item => item.id === id);
     basket.splice(foundItem, 1);
     saveBasket(basket);
-    countItemsQuantity();
-    renderBasket();
-
 }
 
 function changeQuantity(id, quantity) {
     let basket = getBasket();
     let foundItem = basket.find(item => item.id == id);
-    console.log(foundItem);
-    foundItem.quantity = Number(quantity);
-    console.log(foundItem);
+    foundItem.quantity = parseInt(quantity);
     saveBasket(basket);
-    renderBasket();
-    countItemsQuantity()
 }
 
 function countItemsQuantity() {
     let basket = getBasket();
     let itemsQuantity = 0;
     for (let item of basket) {
-        Number(itemsQuantity += item.quantity);
+        parseInt(itemsQuantity += item.quantity);
         }
     let nbItems= document.getElementById('nbItems');
     if (itemsQuantity==0){
@@ -66,19 +64,23 @@ function countItemsQuantity() {
 
 function totalPricebasket() {
     let basket = getBasket();
-    totalPrice = 0;
-    basket.forEach(item => {
-        totalPrice += item.quantity * item.price;
-    });
-    return totalPrice;
-    }
+    let totalPrice = 0;
+    let divTotalPrice = document.getElementById("totalBasket");
+    if(basket.length === 0) {
+        divTotalPrice.innerText = 'Panier vide';
+    } else {
+        basket.forEach(item => {
+            totalPrice += parseFloat((item.quantity * item.price));
+        });
+        divTotalPrice.innerText = 'TOTAL : ' + totalPrice.toFixed(2) + ' €';
+    }    
+}
 
 function renderBasket(){
     let basket = getBasket();
     let divBasket = document.getElementById("gridBasket");
     $('#gridBasket').empty();
 
-    
     basket.forEach((item) => {
         let removeItemBtn = document.createElement("button");
 
@@ -125,4 +127,5 @@ function renderBasket(){
         divBasket.appendChild(itemQty);
          }
     )
+    totalPricebasket();
 }

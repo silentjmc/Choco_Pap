@@ -1,10 +1,15 @@
-$(document).ready(function() {  
+// $(document).ready(function() { 
+document.addEventListener('DOMContentLoaded', function() { 
     const idProduct = window.location.search.substring(4); 
     $.getJSON("src/products.json", function(data) {
         // Parcourir les objets dans le fichier JSON
         for (var i = 0; i < data.length; i++) {
             // Vérifier si l'ID de l'objet correspond à l'ID passé dans l'URL
             if (data[i].id === idProduct) {
+
+                document.title = data[i].title;
+                document.querySelector('meta[name="description"]').setAttribute('content', data[i].description);
+
                 
                 var productDiv = document.createElement("div");
                 productDiv.className = "md:order-2 md:col-span-2";
@@ -28,17 +33,19 @@ $(document).ready(function() {
                 var productQte = document.createElement("input");
                 productQte.type = "number";
                 productQte.id = "quantity";
-                productQte.placeholder = "1";
-                //productQte.step = "1";
+                productQte.value = "1";
                 productQte.min = "1";
-                //productQte.max = "100";
-                //productQte.className = "border w-16 pl-2";
                 productQte.className = "bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:border-lightbrown block w-20 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-lightbrown"
                 productQteAddCart.appendChild(productQte);
                 var productAddCart= document.createElement("button");
                 productAddCart.type="button";
                 productAddCart.className="rounded items-center bg-lightbrown px-6 py-3 text-base font-Fjalla text-white w-44 hover:bg-brown hover:rounded";
                 productAddCart.innerText="Ajouter au panier";
+                productAddCart.onclick = function() {
+                    var quantityInput = document.getElementById("quantity");
+                    var quantity = parseInt(quantityInput.value);
+                    addItem(data[i].id, data[i].image, data[i].title, data[i].price, quantity);
+                };
                 productQteAddCart.appendChild(productAddCart);
                 
                 var productImg = document.createElement("img");
@@ -55,9 +62,6 @@ $(document).ready(function() {
                 productIngredient.appendChild(productIngredientTitle);
                 productIngredient.appendChild(productIngredientContent);
 
-                
-
-    
                 productDiv.appendChild(productName);
                 productDiv.appendChild(productPrice);
                 productDiv.appendChild(productDivDescription);    
@@ -65,8 +69,6 @@ $(document).ready(function() {
                 $('#productContent').append(productDiv);
                 $('#productContent').append(productImg);
                 $('#productContent').append(productIngredient);
-
-
                 break;
             }
         }
