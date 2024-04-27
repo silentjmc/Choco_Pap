@@ -7,16 +7,16 @@
     <title>Choco Pap - Boutique</title>
     <meta name="description" content="Explorez notre large gamme de chocolats artisanaux.">
     <link rel="stylesheet" href="css/script.css">
-    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/boutique.js"></script>
-    <script src="js/panier.js"></script>
+    <script src="../node_modules/flowbite/dist/flowbite.min.js" defer></script>
+    <script src="js/jquery-3.7.1.min.js" defer></script>
+    <script src="js/panier.js" defer></script>
+    <script src="js/boutique.js" defer></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        const productGrid = new ProductGrid("src/products.json", "shopContent");
-        productGrid.getProducts();
-        countItemsQuantity();
-        renderBasket();
+            let productGrid = new ProductGrid("src/products.json", "shopContent");
+            productGrid.getProducts();
+            countItemsQuantity()
       })
     </script>
 </head>

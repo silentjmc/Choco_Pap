@@ -1,3 +1,4 @@
+import { Basket } from './shop.js';
 class ProductGrid {
     constructor(jsonUrl, containerId) {
         this.jsonUrl = jsonUrl;
@@ -183,3 +184,4 @@ class ProductGrid {
         });
     };
 }
+export { ProductGrid };
