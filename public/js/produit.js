@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 productQteAddCart.appendChild(productQte);
                 var productAddCart= document.createElement("button");
                 productAddCart.type="button";
-                productAddCart.className="rounded items-center bg-lightbrown px-6 py-3 text-base font-Fjalla text-white w-44 hover:bg-brown hover:rounded";
+                productAddCart.className="rounded-lg items-center bg-lightbrown px-6 py-3 text-base font-Fjalla text-white w-44 hover:bg-brown hover:rounded-lg";
                 productAddCart.innerText="Ajouter au panier";
                 productAddCart.onclick = function() {
                     var quantityInput = document.getElementById("quantity");

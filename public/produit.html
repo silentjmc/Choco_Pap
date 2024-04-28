@@ -7,7 +7,7 @@
     <title>Choco Pap - Boutique</title>
     <meta name="description" content="Description">
     <link rel="stylesheet" href="css/script.css">
-    <script src="../node_modules/flowbite/dist/flowbite.min.js" defer></script>
+    <script src="js/flowbite.min.js" defer></script>
     <script src="js/jquery-3.7.1.min.js" defer></script>
     <script src="js/boutique.js" defer></script>
     <script src="js/produit.js" defer></script>
@@ -43,7 +43,7 @@
                     <span class="inline hover:text-lightbrown hover:underline hover:font-bold md:hidden">Panier</span>
                     <button type="button" data-drawer-target="basket" data-drawer-show="basket" data-drawer-placement="right" aria-controls="basket" class="inline align-middle md:inline-block md:mt-2 ">
                         <img src="images/cart.svg" alt="Panier" class="inline size-6 md:size-12 md:absolute md:z-10 md:top-2 md:right-8">
-                        <p id="nbItems" class="inline md:absolute text-sm rounded-lg border border-lightyellow bg-lightyellow text-black md:text-xs md:font-extrabold w-5 h-5 md:z-20 md:ml-6 md:-mt-2"></p>
+                        <span id="nbItems" class="hidden md:absolute text-sm rounded-lg border border-lightyellow bg-lightyellow text-black md:text-xs md:font-extrabold w-5 h-5 md:z-20 md:ml-6 md:-mt-2"></span>
                     </button>
                 </li>
             </ul>
@@ -70,9 +70,9 @@
         <p id="totalBasket" class="flex justify-center"></p>
         </div>
         <div class="flex flex-col gap-5 mt-5">
-        <button type="button" aria-controls="delete" class="uppercase rounded-lg flex place-self-center justify-center bg-lightbrown px-5 py-3 w-64 text-base font-Fjalla text-white hover:bg-brown hover:rounded.lg" onclick="emptyBasket()">réinitialiser le panier
+        <button type="button" class="uppercase rounded-lg flex place-self-center justify-center bg-lightbrown px-5 py-3 w-64 text-base font-Fjalla text-white hover:bg-brown hover:rounded.lg" onclick="emptyBasket()">réinitialiser le panier
         </button>
-        <button type="button" aria-controls="validate" class="uppercase rounded-lg flex place-self-center justify-center bg-lightbrown px-5 py-3 w-64 text-base font-Fjalla text-white">valider le panier
+        <button type="button" class="uppercase rounded-lg flex place-self-center justify-center bg-lightbrown px-5 py-3 w-64 text-base font-Fjalla text-white">valider le panier
         </button>
         </div>
     </div>

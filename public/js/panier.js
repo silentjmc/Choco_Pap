@@ -55,9 +55,11 @@ function countItemsQuantity() {
         }
     let nbItems= document.getElementById('nbItems');
     if (itemsQuantity==0){
+        nbItems.classList.remove("inline"); 
         nbItems.classList.add("hidden");
     } else {
         nbItems.classList.remove("hidden");
+        nbItems.classList.add("inline"); 
         nbItems.innerText = itemsQuantity;
     } 
 }
