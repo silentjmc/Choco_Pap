@@ -19,7 +19,5 @@ Ce projet utilise les technologies suivantes :
   - JQuery
 
 ## Liens vers les maquettes
-- **Charte graphique** : [lien vers la charte graphique](https://github.com/silentjmc/club_auto/blob/main/maquettes/Club%20Auto%20-%20Charte%20graphique.pdf)
-- **Maquette de la page d'accueil** : [version desktop](https://github.com/silentjmc/club_auto/blob/main/maquettes/accueil-desktop.png) /  : [version mobile](https://github.com/silentjmc/club_auto/blob/main/maquettes/accueil-mobile.png)
-- **Maquette de la page de contact** : [version desktop](https://github.com/silentjmc/club_auto/blob/main/maquettes/contact-desktop.png) / [version mobile](https://github.com/silentjmc/club_auto/blob/main/maquettes/contact-mobile.png)
-- **Maquette de la page de détail d'un véhicule** : [version desktop](https://github.com/silentjmc/club_auto/blob/main/maquettes/vehicule-details-desktop.png) /  [version mobile](https://github.com/silentjmc/club_auto/blob/main/maquettes/vehicule-details-mobile.png)
+- **Charte graphique** : [lien vers la charte graphique](https://github.com/silentjmc/Choco_Pap/blob/main/public/maquettes/Choco_Pap_charte_graphique.pdf)
+- **Wireframes** : [Lien vers les wireframes](https://github.com/silentjmc/Choco_Pap/blob/main/public/maquettes/Choco_Pap_wireframes.pdf)
